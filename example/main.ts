@@ -9,7 +9,7 @@ console.log(`Server started on port ${PORT}`);
 //  req.respond({ body });
 //}
 
-import { Application,Router } from "https://deno.land/x/oak/mod.ts";
+import { Application,Router,helpers } from "https://deno.land/x/oak/mod.ts";
 
 const app = new Application();
 
@@ -53,7 +53,7 @@ router
     }
   });
 router.get("/book/:id/page/:page", (ctx) => {
-  getQuery(ctx, { mergeParams: true });
+  helpers.getQuery(ctx, { mergeParams: true });
 });
 app.use(router.routes());
 app.use(router.allowedMethods());
