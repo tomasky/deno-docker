@@ -30,7 +30,7 @@ app.use(async (ctx, next) => {
 
 // Hello World!
 app.use((ctx) => {
-  ctx.response.body = "Hello middle!";
+  //ctx.response.body = "Hello middle!";
 });
 
 const books = new Map<string, any>();
