@@ -52,4 +52,9 @@ router
       context.response.body = books.get(context.params.id);
     }
   });
+router.get("/book/:id/page/:page", (ctx) => {
+  getQuery(ctx, { mergeParams: true });
+});
+app.use(router.routes());
+app.use(router.allowedMethods());
 await app.listen({ port: PORT });
