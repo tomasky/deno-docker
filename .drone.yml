@@ -1,17 +1,17 @@
 kind: pipeline
 name: default
-
+workspace:
+ base: ./example
 steps:
 - name: test
   image: hayd/alpine-deno:1.4.6
   commands:
   - deno --version
-  - cd ./example && deno cache main.ts
+  - deno cache main.ts
   
 - name: publish
   image: plugins/docker:18
-  commands:
-  - cd ./example 
+   
   settings:
     auto_tag: true
     auto_tag_suffix: linux-amd64
