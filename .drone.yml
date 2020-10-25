@@ -1,7 +1,7 @@
 kind: pipeline
 name: default
 workspace:
- base: ./example
+  path: /drone/src/example 
 steps:
 - name: test
   image: hayd/alpine-deno:1.4.6
