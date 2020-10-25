@@ -6,4 +6,4 @@ steps:
   image: hayd/alpine-deno:1.4.6
   commands:
   - deno --version
-  - deno test
+  - cd ./example && deno run --allow-net main.ts
