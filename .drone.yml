@@ -4,7 +4,7 @@ type: docker
 
 environment:
   gituser:
-    from_secret: git_user
+    from_secret: docker_username
    
 steps:
 - name: test
