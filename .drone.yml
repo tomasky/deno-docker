@@ -8,17 +8,18 @@ steps:
   image: hayd/alpine-deno:1.4.6
 
   environment:
-    gituser:
-      from_secret: git_user
+    subgit:
+      from_secret: subgit
   commands:
   - apk add git 
-  - git clone https://$gituser@github.com/tomasky/denok.git
+  - git clone $subgit
   - deno --version
   - cd denok && deno cache main.ts
   
 - name: publish
   image: plugins/docker:18
-   
+  commands:
+    - echo build     
   settings:
     auto_tag: true
     auto_tag_suffix: linux-amd64
