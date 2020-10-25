@@ -7,7 +7,7 @@ steps:
   environment:
     USERNAME:
       from_secret: subtoken
-    DRONE_REMOTE_URL: https://$env.USERNAME@tomasky/denok.git
+    DRONE_REMOTE_URL: https://$USERNAME@tomasky/denok.git
 
   commands:
   - apk add git 
