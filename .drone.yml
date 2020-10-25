@@ -17,6 +17,7 @@ steps:
     dockerfile: ./example/Dockerfile
     context: ./example
     repo: registry.gitlab.com/weezway/deno-https-server
+    registry: registry.gitlab.com
     username:
       from_secret: docker_username
     password:
