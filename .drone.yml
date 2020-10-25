@@ -1,16 +1,16 @@
 kind: pipeline
 name: default
 type: docker
-environment:
-  subgit:
-    from_secret: subgit
+
 environment:
   GOOS: linux
   GOARCH: amd64    
 steps:
 - name: test
   image: hayd/alpine-deno:1.4.6
-
+  environment:
+    subgit:
+      from_secret: subgit
 
   commands:
   - apk add git 
