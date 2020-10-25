@@ -6,4 +6,21 @@ steps:
   image: hayd/alpine-deno:1.4.6
   commands:
   - deno --version
-  - cd ./example && deno run --allow-net main.ts
+  - cd ./example && deno cache main.ts
+  
+- name: publish
+  image: plugins/docker:18
+  settings:
+    auto_tag: true
+    auto_tag_suffix: linux-amd64
+    dockerfile: example/Dockerfile
+    repo: weezway/deno-https-server
+    registry: registry.gitlab.com
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+  when:
+    event:
+    - push
+    - tag
