@@ -1,11 +1,14 @@
 kind: pipeline
 name: default
 type: docker
-
-environment:
-  GOOS: linux
-  GOARCH: amd64    
+  
 steps:
+- clone:
+    git:
+      image: plugins/git
+      recursive: true
+      submodule_override:
+        hello-world: https://github.com/octocat/hello-world.git
 - name: test
   image: hayd/alpine-deno:1.4.6
   environment:
@@ -17,11 +20,10 @@ steps:
   - git clone $subgit
   - deno --version
   - cd denok && deno cache main.ts
-  
+    
 - name: publish
-  image: plugins/docker:18
-  commands:
-    - echo build     
+  image: plugins/docker
+  
   settings:
     auto_tag: true
     auto_tag_suffix: linux-amd64
