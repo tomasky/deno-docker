@@ -2,7 +2,7 @@ kind: pipeline
 name: default
 
 environment:
-  USERNAME:
+  gituser:
     from_secret: git_user
    
 steps:
@@ -12,7 +12,7 @@ steps:
 
   commands:
   - apk add git 
-  - git clone https://$USERNAME@tomasky/denok.git
+  - git clone https://$$gituser@tomasky/denok.git
   - deno --version
   - cd example && deno cache main.ts
   
