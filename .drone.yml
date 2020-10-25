@@ -9,11 +9,10 @@ steps:
 
   environment:
     gituser:
-      from_secret: docker_username
+      from_secret: git_user
   commands:
-  - echo $${gituser}
   - apk add git 
-  - git clone https://$${GOARCH}@tomasky/denok.git
+  - git clone https://$${gituser}@tomasky/denok.git
   - deno --version
   - cd example && deno cache main.ts
   
