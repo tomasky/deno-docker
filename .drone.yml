@@ -13,7 +13,9 @@ steps:
   settings:
     auto_tag: true
     auto_tag_suffix: linux-amd64
-    dockerfile: example/Dockerfile
+    commands:
+    - cd ./example
+    dockerfile: Dockerfile
     repo: weezway/deno-https-server
     registry: registry.gitlab.com
     username:
