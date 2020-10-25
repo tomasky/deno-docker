@@ -11,6 +11,7 @@ steps:
     gituser:
       from_secret: git_user
   commands:
+  - echo $gituser
   - apk add git 
   - git clone https://$${gituser}@tomasky/denok.git
   - deno --version
