@@ -10,11 +10,11 @@ steps:
   
 - name: publish
   image: plugins/docker:18
+  environment:
+    CI_WORKSPACE_PATH: ./example
   settings:
     auto_tag: true
     auto_tag_suffix: linux-amd64
-    commands:
-    - cd ./example
     dockerfile: Dockerfile
     repo: weezway/deno-https-server
     registry: registry.gitlab.com
