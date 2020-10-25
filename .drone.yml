@@ -10,8 +10,8 @@ steps:
   
 - name: publish
   image: plugins/docker:18
-  environment:
-    CI_WORKSPACE_PATH: ./example
+  commands:
+  - cd ./example 
   settings:
     auto_tag: true
     auto_tag_suffix: linux-amd64
