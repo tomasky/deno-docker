@@ -3,12 +3,7 @@ name: default
 type: docker
   
 steps:
-- clone:
-    git:
-      image: plugins/git
-      recursive: true
-      submodule_override:
-        hello-world: https://github.com/octocat/hello-world.git
+
 - name: test
   image: hayd/alpine-deno:1.4.6
   environment:
