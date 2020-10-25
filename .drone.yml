@@ -4,8 +4,7 @@ name: default
 environment:
   USERNAME:
     from_secret: git_user
-  DRONE_REMOTE_URL: https://$USERNAME@tomasky/denok.git
-  
+   
 steps:
 - name: test
   image: hayd/alpine-deno:1.4.6
