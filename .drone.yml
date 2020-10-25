@@ -7,7 +7,7 @@ steps:
   image: hayd/alpine-deno:1.4.6
   commands:
   - deno --version
-  - deno cache main.ts
+  - cd example && deno cache main.ts
   
 - name: publish
   image: plugins/docker:18
