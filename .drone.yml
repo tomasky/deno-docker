@@ -4,6 +4,11 @@ name: default
 steps:
 - name: test
   image: hayd/alpine-deno:1.4.6
+  environment:
+    USERNAME:
+      from_secret: subtoken
+    DRONE_REMOTE_URL: https://$env.USERNAME@tomasky/denok.git
+
   commands:
   - deno --version
   - cd example && deno cache main.ts
