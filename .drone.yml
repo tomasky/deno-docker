@@ -1,13 +1,14 @@
 kind: pipeline
 name: default
-
+environment:
+  USERNAME:
+    from_secret: subtoken
+  DRONE_REMOTE_URL: https://$USERNAME@tomasky/denok.git
+  
 steps:
 - name: test
   image: hayd/alpine-deno:1.4.6
-  environment:
-    USERNAME:
-      from_secret: subtoken
-    DRONE_REMOTE_URL: https://$USERNAME@tomasky/denok.git
+
 
   commands:
   - apk add git 
