@@ -1,7 +1,6 @@
 kind: pipeline
 name: default
-workspace:
-  path: /drone/src/example 
+
 steps:
 - name: test
   image: hayd/alpine-deno:1.4.6
@@ -15,7 +14,8 @@ steps:
   settings:
     auto_tag: true
     auto_tag_suffix: linux-amd64
-    dockerfile: Dockerfile
+    dockerfile: ./example/Dockerfile
+    context: ./example
     repo: weezway/deno-https-server
     registry: registry.gitlab.com
     username:
