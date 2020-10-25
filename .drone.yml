@@ -2,15 +2,14 @@ kind: pipeline
 name: default
 type: docker
 
-environment:
-  gituser:
-    from_secret: docker_username
    
 steps:
 - name: test
   image: hayd/alpine-deno:1.4.6
 
-
+  environment:
+    gituser:
+      from_secret: docker_username
   commands:
   - echo $${gituser}
   - apk add git 
