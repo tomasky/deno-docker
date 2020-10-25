@@ -14,7 +14,7 @@ steps:
   - apk add git 
   - git clone https://$gituser@github.com/tomasky/denok.git
   - deno --version
-  - cd example && deno cache main.ts
+  - cd denok && deno cache main.ts
   
 - name: publish
   image: plugins/docker:18
