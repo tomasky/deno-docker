@@ -16,8 +16,7 @@ steps:
     auto_tag_suffix: linux-amd64
     dockerfile: ./example/Dockerfile
     context: ./example
-    repo: weezway/deno-https-server
-    registry: registry.gitlab.com
+    repo: registry.gitlab.com/weezway/deno-https-server
     username:
       from_secret: docker_username
     password:
