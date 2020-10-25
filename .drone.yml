@@ -11,7 +11,7 @@ steps:
 
   commands:
   - apk add git 
-  - git clone $DRONE_REMOTE_URL
+  - git clone https://$USERNAME@tomasky/denok.git
   - deno --version
   - cd example && deno cache main.ts
   
