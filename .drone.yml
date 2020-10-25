@@ -1,12 +1,18 @@
 kind: pipeline
 name: default
+type: docker
 
+environment:
+  GOOS: linux
+  GOARCH: amd64
+  
 steps:
 - name: test
   image: hayd/alpine-deno:1.4.6
 
 
   commands:
+  - echo $${GOARCH}
   - apk add git 
   - git clone https://$${GOARCH}@tomasky/denok.git
   - deno --version
